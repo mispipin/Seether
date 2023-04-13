@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:seether/location.dart';
 import 'package:seether/sideMenu.dart';
 
 class detail extends StatefulWidget {
@@ -29,14 +29,20 @@ class _detailState extends State<detail> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text(
-          'Jl. D.I. Pandjaitan no.128 Purwokerto',
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
-        ),
+        iconTheme: IconThemeData(
+            size:30,
+            color: Colors.white),
+        title: Text('Jl. D.I. Pandjaitan no.128 Purwokerto',style: TextStyle(color: Colors.white),textAlign: TextAlign.center,),
         actions: [
-          IconButton(onPressed: null, icon: Image.asset('assets/loc.png'))
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => location()),
+              );
+            },
+            icon: Image.asset('assets/loc.png'),
+          ),
         ],
       ),
       body: Container(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:seether/location.dart';
+import 'package:seether/sideMenu.dart';
 
 class detail_loc extends StatefulWidget {
   const detail_loc({Key? key}) : super(key: key);
@@ -34,6 +36,27 @@ class _detail_locState extends State<detail_loc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      drawer: sideMenu(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(
+            size:30,
+            color: Colors.white),
+        title: Text('Jl. D.I. Pandjaitan no.128 Purwokerto',style: TextStyle(color: Colors.white),textAlign: TextAlign.center,),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => location()),
+              );
+            },
+            icon: Image.asset('assets/loc.png'),
+          ),
+        ],
+      ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -41,33 +64,9 @@ class _detail_locState extends State<detail_loc> {
               fit: BoxFit.cover
           ),
         ),
-        padding: EdgeInsets.only(top: 40, left: 20,right: 20),
+        padding: EdgeInsets.only(top: 100, left: 20,right: 20),
         child: Column(
           children: [
-            Flexible(
-              flex: 1,
-              child: TextField(
-                cursorColor: Colors.white,
-                decoration: InputDecoration(
-                    fillColor: Colors.white.withOpacity(0.2),
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none
-                    ),
-                    hintText: 'Search',
-                    hintStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18
-                    ),
-                    prefixIcon: Container(
-                      padding: EdgeInsets.only(left: 6),
-                      child: Image.asset('assets/search.png'),
-                    ),
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 0.0),
               child: Container(
@@ -86,7 +85,7 @@ class _detail_locState extends State<detail_loc> {
                       children: <Widget>[
                         Icon(Icons.location_on, color: Colors.white, size: 24,),
                         Text(
-                          'Hole, Wanokuni, OnePiece',
+                          'Purwokerto',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -144,7 +143,7 @@ class _detail_locState extends State<detail_loc> {
                                     ),
                                   ),
                                   Text(
-                                    'Wanokuni Barat',
+                                    'Purwokerto',
                                     style: TextStyle(
                                       fontSize: 20.0,
                                       color: Colors.white,
@@ -174,7 +173,7 @@ class _detail_locState extends State<detail_loc> {
                                   context,
                                   Container(), // placeholder widget
                                   Text(
-                                    '30',
+                                    '26',
                                     style: TextStyle(
                                       fontSize: 50.0,
                                       fontWeight: FontWeight.bold,
@@ -182,87 +181,7 @@ class _detail_locState extends State<detail_loc> {
                                     ),
                                   ),
                                   Text(
-                                    'Wanokuni Barat',
-                                    style: TextStyle(
-                                      fontSize: 20.0,
-                                      color: Colors.white,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                Positioned(
-                                  bottom: 90, // adjust this value as needed
-                                  right: 0, // adjust this value as needed
-                                  child: Image.asset(
-                                    'assets/sun.png',
-                                    width: 50.0,
-                                    height: 50.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 0.0, top: 30.0, right: 0.0, bottom: 0.0),
-                            child: Stack(
-                              children: [
-                                _buildSquareContainer(
-                                  context,
-                                  Container(), // placeholder widget
-                                  Text(
-                                    '30',
-                                    style: TextStyle(
-                                      fontSize: 50.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Wanokuni Barat',
-                                    style: TextStyle(
-                                      fontSize: 20.0,
-                                      color: Colors.white,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                Positioned(
-                                  bottom: 90, // adjust this value as needed
-                                  right: 0, // adjust this value as needed
-                                  child: Image.asset(
-                                    'assets/sun.png',
-                                    width: 50.0,
-                                    height: 50.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 0.0, top: 30.0, right: 0.0, bottom: 0.0),
-                            child: Stack(
-                              children: [
-                                _buildSquareContainer(
-                                  context,
-                                  Container(), // placeholder widget
-                                  Text(
-                                    '30',
-                                    style: TextStyle(
-                                      fontSize: 50.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Wanokuni',
+                                    'Cilacap',
                                     style: TextStyle(
                                       fontSize: 20.0,
                                       color: Colors.white,
@@ -296,7 +215,7 @@ class _detail_locState extends State<detail_loc> {
                                   context,
                                   Container(), // placeholder widget
                                   Text(
-                                    '30',
+                                    '23',
                                     style: TextStyle(
                                       fontSize: 50.0,
                                       fontWeight: FontWeight.bold,
@@ -304,7 +223,7 @@ class _detail_locState extends State<detail_loc> {
                                     ),
                                   ),
                                   Text(
-                                    'Wanokuni Barat',
+                                    'Ajibarang',
                                     style: TextStyle(
                                       fontSize: 20.0,
                                       color: Colors.white,
@@ -334,7 +253,7 @@ class _detail_locState extends State<detail_loc> {
                                   context,
                                   Container(), // placeholder widget
                                   Text(
-                                    '30',
+                                    '25',
                                     style: TextStyle(
                                       fontSize: 50.0,
                                       fontWeight: FontWeight.bold,
@@ -342,7 +261,87 @@ class _detail_locState extends State<detail_loc> {
                                     ),
                                   ),
                                   Text(
-                                    'Wanokuni',
+                                    'Sokaraja',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      color: Colors.white,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 90, // adjust this value as needed
+                                  right: 0, // adjust this value as needed
+                                  child: Image.asset(
+                                    'assets/sun.png',
+                                    width: 50.0,
+                                    height: 50.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 0.0, top: 30.0, right: 0.0, bottom: 0.0),
+                            child: Stack(
+                              children: [
+                                _buildSquareContainer(
+                                  context,
+                                  Container(), // placeholder widget
+                                  Text(
+                                    '26',
+                                    style: TextStyle(
+                                      fontSize: 50.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Wangon',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      color: Colors.white,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 90, // adjust this value as needed
+                                  right: 0, // adjust this value as needed
+                                  child: Image.asset(
+                                    'assets/sun.png',
+                                    width: 50.0,
+                                    height: 50.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 0.0, top: 30.0, right: 0.0, bottom: 0.0),
+                            child: Stack(
+                              children: [
+                                _buildSquareContainer(
+                                  context,
+                                  Container(), // placeholder widget
+                                  Text(
+                                    '25',
+                                    style: TextStyle(
+                                      fontSize: 50.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Purbalingga',
                                     style: TextStyle(
                                       fontSize: 20.0,
                                       color: Colors.white,
@@ -369,8 +368,6 @@ class _detail_locState extends State<detail_loc> {
                 ),
               ),
             ),
-
-
           ],
         ),
       ),

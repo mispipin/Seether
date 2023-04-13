@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:seether/sideMenu.dart';
 class location extends StatefulWidget {
   const location({Key? key}) : super(key: key);
 
@@ -12,6 +13,27 @@ class _locationState extends State<location> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      drawer: sideMenu(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(
+            size:30,
+            color: Colors.white),
+        title: Text('Jl. D.I. Pandjaitan no.128 Purwokerto',style: TextStyle(color: Colors.white),textAlign: TextAlign.center,),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => location()),
+              );
+            },
+            icon: Image.asset('assets/loc.png'),
+          ),
+        ],
+      ),
       body: Stack(
         children: <Widget>[
           Container(
@@ -24,30 +46,7 @@ class _locationState extends State<location> {
           ),
           Column(
             children: [
-              Flexible(
-                flex: 1,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 40, left: 20, right: 20),
-                  child: TextField(
-                    cursorColor: Colors.white,
-                    decoration: InputDecoration(
-                        fillColor: Colors.white.withOpacity(0.2),
-                        filled: true,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide.none),
-                        hintText: 'Search',
-                        hintStyle: TextStyle(color: Colors.white, fontSize: 17),
-                        prefixIcon: Container(
-                          padding: EdgeInsets.only(left: 6),
-                          child: Image.asset('assets/search.png'),
-                          width: 4,
-                          height: 15,
-                        )),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10),
+              SizedBox(height: 120),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Container(
